@@ -27,9 +27,9 @@ fun fizzBuzz0To100(){
             if (multipleOf(i, 7)) {
                 output.add("Bang")
             }
-            if (!multipleOf(i, 3) && !multipleOf(i, 5) && !multipleOf(i,7)) {
-                output.add(i.toString())
-            }
+        }
+        if (output.size==0){
+            output.add(i.toString())
         }
         if (multipleOf(i,17)){
             output.reverse()
