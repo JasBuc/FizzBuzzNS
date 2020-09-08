@@ -5,23 +5,37 @@ fun main(){
 }
 
 fun fizzBuzz0To100(){
+
     for (i in 0..100){
+        val output = mutableListOf<String>()
         if (multipleOf(i,11)){
-            print("Bong")
+            if(multipleOf(i,13)){
+                output.add("Fezz")
+            }
+            output.add("Bong")
         }
         else {
             if (multipleOf(i, 3)) {
-                print("Fizz")
+                output.add("Fizz")
+            }
+            if(multipleOf(i,13)){
+                output.add("Fezz")
             }
             if (multipleOf(i, 5)) {
-                print("Buzz")
+                output.add("Buzz")
             }
             if (multipleOf(i, 7)) {
-                print("Bang")
+                output.add("Bang")
             }
-            if (!multipleOf(i, 3) && !multipleOf(i, 5)) {
-                print(i)
+            if (!multipleOf(i, 3) && !multipleOf(i, 5) && !multipleOf(i,7)) {
+                output.add(i.toString())
             }
+        }
+        if (multipleOf(i,17)){
+            output.reverse()
+        }
+        for (word in output){
+            print(word)
         }
         println()
     }
