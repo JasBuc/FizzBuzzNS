@@ -1,12 +1,19 @@
 package com.example.fizzbuzzns
 
 fun main(){
-    fizzBuzz0To100()
+    val max = getMax()
+    val outputs = generateFizzBuzz0To(max)
+    printOutputs(outputs)
 }
 
-fun fizzBuzz0To100(){
+fun getMax(): Int{
+    println("Please enter the list maximum: ")
+    return Integer.valueOf(readLine())
+}
 
-    for (i in 0..100){
+fun generateFizzBuzz0To(max: Int): MutableList<String>{
+    val outputs = mutableListOf<String>()
+    for (i in 1..max){
         val output = mutableListOf<String>()
         if (multipleOf(i,11)){
             if(multipleOf(i,13)){
@@ -34,11 +41,24 @@ fun fizzBuzz0To100(){
         if (multipleOf(i,17)){
             output.reverse()
         }
-        for (word in output){
-            print(word)
-        }
-        println()
+        val outputString = concatenateOutputIntoString(output)
+        outputs.add(outputString)
     }
+    return outputs
 }
 
 fun multipleOf(toCheck: Int, multiple: Int) = toCheck%multiple==0
+
+fun concatenateOutputIntoString(output: MutableList<String>): String{
+    var outputString = ""
+    for (word in output){
+        outputString += word
+    }
+    return outputString
+}
+
+fun printOutputs(outputs: MutableList<String>){
+    for (output in outputs){
+        println(output)
+    }
+}
